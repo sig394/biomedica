@@ -43,7 +43,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('user/login');
 		}
 	}
 });
@@ -86,5 +86,12 @@ Route::filter('csrf', function()
 	if (Session::token() != Input::get('_token'))
 	{
 		throw new Illuminate\Session\TokenMismatchException;
+	}
+});
+
+Route::filter('admin_role', function()
+{
+	if (!Entrust::hasRole('Admin')){
+		return Redirect::to('user/login');
 	}
 });
