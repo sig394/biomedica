@@ -99,7 +99,7 @@ class UserController extends BaseController {
             // caught by the authentication filter IE Redirect::guest('user/login').
             // Otherwise fallback to '/'
             // Fix pull #145
-            return Redirect::intended('/hello'); // change it to '/admin', '/dashboard' or something
+            return Redirect::intended('/admin/medical_category'); // change it to '/admin', '/dashboard' or something
         }
         else
         {

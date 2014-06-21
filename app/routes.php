@@ -24,10 +24,7 @@ Route::get( 'user/reset_password/{token}', 'UserController@reset_password');
 Route::post('user/reset_password',         'UserController@do_reset_password');
 Route::get( 'user/logout',                 'UserController@logout');
 
-
-Route::group(array('before' => 'auth|admin_role'), function() {
-	Route::get('/hello', function()
-	{
-		return View::make('hello');
-	});
+Route::get('/', function()
+{
+	return View::make('hello');
 });
